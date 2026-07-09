@@ -77,14 +77,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "오늘 뭐 먹지? — 음식 월드컵" },
+      { name: "description", content: "16강 토너먼트로 오늘의 메뉴를 골라보세요. 치킨부터 마라탕까지, 단 한 번의 선택으로 결정!" },
+      { property: "og:title", content: "오늘 뭐 먹지? — 음식 월드컵" },
+      { property: "og:description", content: "메뉴 고민 끝. 16강 토너먼트로 즐겁게 결정하세요." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -92,6 +90,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Black+Han+Sans&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -102,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="ko" className="dark">
       <head>
         <HeadContent />
       </head>

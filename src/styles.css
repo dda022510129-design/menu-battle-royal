@@ -4,6 +4,11 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --font-display: "Black Han Sans", "Gowun Dodum", system-ui, sans-serif;
+  --font-sans: "Gowun Dodum", system-ui, sans-serif;
+}
+
 /*
  * Design system definition.
  *
@@ -131,6 +136,72 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
 }
+
+@layer base {
+  html, body {
+    background: radial-gradient(1200px 800px at 10% -10%, rgba(251, 146, 60, 0.18), transparent 60%),
+                radial-gradient(1000px 700px at 110% 20%, rgba(245, 158, 11, 0.14), transparent 60%),
+                #0b1120;
+    color: #f8fafc;
+    font-family: var(--font-sans);
+    min-height: 100vh;
+  }
+}
+
+@utility glass {
+  background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px) saturate(140%);
+  box-shadow: 0 10px 40px -10px rgba(0,0,0,0.6);
+}
+
+@utility text-gradient-amber {
+  background: linear-gradient(135deg, #fde68a 0%, #fb923c 50%, #ef4444 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility btn-amber {
+  background: linear-gradient(135deg, #f59e0b 0%, #f97316 55%, #ef4444 100%);
+  color: #1a0a00;
+  font-weight: 800;
+  box-shadow: 0 10px 30px -8px rgba(249, 115, 22, 0.6), inset 0 1px 0 rgba(255,255,255,0.35);
+  transition: transform .2s ease, box-shadow .2s ease;
+  &:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 20px 40px -10px rgba(249, 115, 22, 0.75), inset 0 1px 0 rgba(255,255,255,0.4);
+  }
+  &:active { transform: translateY(0) scale(0.99); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 40px 4px rgba(251, 191, 36, 0.35), 0 0 100px 20px rgba(249, 115, 22, 0.15); }
+  50%      { box-shadow: 0 0 60px 10px rgba(251, 191, 36, 0.55), 0 0 140px 30px rgba(249, 115, 22, 0.25); }
+}
+@keyframes vs-float {
+  0%, 100% { transform: translate(-50%, -50%) rotate(-6deg) scale(1); }
+  50%      { transform: translate(-50%, -50%) rotate(-6deg) scale(1.08); }
+}
+@keyframes card-in {
+  from { opacity: 0; transform: translateY(20px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes winner-pop {
+  0%   { opacity: 0; transform: scale(0.6) rotate(-8deg); }
+  60%  { opacity: 1; transform: scale(1.08) rotate(2deg); }
+  100% { transform: scale(1) rotate(0); }
+}
+@keyframes confetti-fall {
+  0%   { transform: translateY(-10vh) rotate(0); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+}
+
+@utility animate-pulse-glow { animation: pulse-glow 2.4s ease-in-out infinite; }
+@utility animate-vs-float   { animation: vs-float 2s ease-in-out infinite; }
+@utility animate-card-in    { animation: card-in .45s cubic-bezier(.2,.7,.2,1) both; }
+@utility animate-winner-pop { animation: winner-pop .9s cubic-bezier(.2,.8,.2,1) both; }
 
 @layer base {
   * {
