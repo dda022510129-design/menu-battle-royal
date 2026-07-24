@@ -32,10 +32,7 @@ export function MatchScreen({
     <main className="relative min-h-screen px-4 md:px-8 py-6 md:py-10">
       <div className="max-w-6xl mx-auto flex flex-col gap-6">
         <header className="flex items-center justify-between">
-          <h2
-            className="text-2xl md:text-3xl"
-            style={{ fontFamily: "var(--font-display)" }}
-          >
+          <h2 className="text-2xl md:text-3xl" style={{ fontFamily: "var(--font-display)" }}>
             <span className="text-gradient-amber">오늘 뭐 먹지?</span>
           </h2>
           <span className="text-xs uppercase tracking-[0.25em] text-slate-400">Food World Cup</span>
@@ -100,6 +97,7 @@ function FoodChoiceCard({
 }) {
   const isPicked = picked === food.id;
   const isLoser = picked !== null && !isPicked;
+  const [imgError, setImgError] = useState(false);
 
   return (
     <button
@@ -111,18 +109,43 @@ function FoodChoiceCard({
         isPicked
           ? "ring-4 ring-amber-300 scale-[1.02] shadow-[0_30px_80px_-20px_rgba(251,191,36,0.6)]"
           : isLoser
-          ? "opacity-30 scale-95 grayscale"
-          : "hover:scale-[1.02] hover:-translate-y-1 hover:ring-2 hover:ring-amber-300/60",
+            ? "opacity-30 scale-95 grayscale"
+            : "hover:scale-[1.02] hover:-translate-y-1 hover:ring-2 hover:ring-amber-300/60",
         "cursor-pointer disabled:cursor-default",
       ].join(" ")}
       style={{ animationDelay: side === "right" ? "80ms" : "0ms" }}
     >
+      {/* Food image background or gradient fallback */}
+      {food.image && !imgError ? (
+        <>
+          <img
+            src={food.image}
+            alt={food.name}
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+            onError={() => setImgError(true)}
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/20"
+            aria-hidden
+          />
+        </>
+      ) : (
+        <>
+          <div
+            className={`absolute inset-0 bg-gradient-to-br ${food.gradient} opacity-90`}
+            aria-hidden
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent"
+            aria-hidden
+          />
+        </>
+      )}
+
       <div
-        className={`absolute inset-0 bg-gradient-to-br ${food.gradient} opacity-90`}
+        className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-white/10 blur-3xl group-hover:bg-white/20 transition"
         aria-hidden
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" aria-hidden />
-      <div className="absolute -bottom-20 -right-20 h-64 w-64 rounded-full bg-white/10 blur-3xl group-hover:bg-white/20 transition" aria-hidden />
 
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center gap-6">
         <div className="relative">

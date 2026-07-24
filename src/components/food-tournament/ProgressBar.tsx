@@ -22,7 +22,10 @@ export function ProgressBar({
           <span className="text-slate-500"> / {totalMatches}</span>
         </div>
       </div>
-      <div className="grid gap-1" style={{ gridTemplateColumns: `repeat(${totalMatches}, minmax(0, 1fr))` }}>
+      <div
+        className="grid gap-1"
+        style={{ gridTemplateColumns: `repeat(${totalMatches}, minmax(0, 1fr))` }}
+      >
         {Array.from({ length: totalMatches }).map((_, i) => (
           <div
             key={i}
@@ -31,8 +34,8 @@ export function ProgressBar({
               (i < matchNumber - 1
                 ? "bg-gradient-to-r from-amber-400 to-orange-500"
                 : i === matchNumber - 1
-                ? "bg-amber-300/70"
-                : "bg-white/8")
+                  ? "bg-amber-300/70"
+                  : "bg-white/8")
             }
           />
         ))}

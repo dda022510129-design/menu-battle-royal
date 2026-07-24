@@ -78,15 +78,35 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "오늘 뭐 먹지? — 음식 월드컵" },
-      { name: "description", content: "16강 토너먼트로 오늘의 메뉴를 골라보세요. 치킨부터 마라탕까지, 단 한 번의 선택으로 결정!" },
+      {
+        name: "description",
+        content:
+          "16강 토너먼트로 오늘의 메뉴를 골라보세요. 치킨부터 마라탕까지, 단 한 번의 선택으로 결정!",
+      },
       { property: "og:title", content: "오늘 뭐 먹지? — 음식 월드컵" },
-      { property: "og:description", content: "16강 토너먼트로 오늘의 메뉴를 골라보세요. 치킨부터 마라탕까지, 단 한 번의 선택으로 결정!" },
+      {
+        property: "og:description",
+        content:
+          "16강 토너먼트로 오늘의 메뉴를 골라보세요. 치킨부터 마라탕까지, 단 한 번의 선택으로 결정!",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "오늘 뭐 먹지? — 음식 월드컵" },
-      { name: "twitter:description", content: "16강 토너먼트로 오늘의 메뉴를 골라보세요. 치킨부터 마라탕까지, 단 한 번의 선택으로 결정!" },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7afea6fa-8426-4cf3-bb19-18908f091dab/id-preview-67b8fbe3--f58f711c-2477-4648-bc26-c034a74c3538.lovable.app-1783579318054.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7afea6fa-8426-4cf3-bb19-18908f091dab/id-preview-67b8fbe3--f58f711c-2477-4648-bc26-c034a74c3538.lovable.app-1783579318054.png" },
+      {
+        name: "twitter:description",
+        content:
+          "16강 토너먼트로 오늘의 메뉴를 골라보세요. 치킨부터 마라탕까지, 단 한 번의 선택으로 결정!",
+      },
+      {
+        property: "og:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7afea6fa-8426-4cf3-bb19-18908f091dab/id-preview-67b8fbe3--f58f711c-2477-4648-bc26-c034a74c3538.lovable.app-1783579318054.png",
+      },
+      {
+        name: "twitter:image",
+        content:
+          "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7afea6fa-8426-4cf3-bb19-18908f091dab/id-preview-67b8fbe3--f58f711c-2477-4648-bc26-c034a74c3538.lovable.app-1783579318054.png",
+      },
     ],
     links: [
       {
@@ -96,7 +116,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Black+Han+Sans&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Black+Han+Sans&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
